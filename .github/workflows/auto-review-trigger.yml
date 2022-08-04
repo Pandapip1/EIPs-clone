@@ -32,23 +32,23 @@ jobs:
         with:
           name: pr-number
           path: pr-number.txt
-  
+
   pr-review:
     runs-on: ubuntu-latest
     name: Review
-    if: github.event_name == 'pull_request_review' && (github.event.review.sender != 'eth-bot' && github.event.review.sender != "Pandapip1-bot") && (github.event.review.state == 'approved' || github.event.review.state == 'dismissed')
+    if: github.event_name == 'pull_request_review' && (github.event.review.sender != 'eth-bot' && github.event.review.sender != 'Pandapip1-bot') && (github.event.review.state == 'approved' || github.event.review.state == 'dismissed')
     steps:
       - name: Write PR Number
         run: echo $PR_NUMBER > pr-number.txt
         env:
-          PR_NUMBER: ${{ github.event.number }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
 
       - name: Save PR Number
         uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
         with:
           name: pr-number
           path: pr-number.txt
-  
+
   dispatch:
     runs-on: ubuntu-latest
     name: Dispatch
