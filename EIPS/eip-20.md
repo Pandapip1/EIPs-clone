@@ -4,7 +4,7 @@ title: Token Standard
 author: Fabian Vogelsteller <fabian@ethereum.org>, Vitalik Buterin <vitalik.buterin@ethereum.org>
 type: Standards Track
 category: ERC
-status: Final
+status: Review
 created: 2015-11-19
 ---
 
